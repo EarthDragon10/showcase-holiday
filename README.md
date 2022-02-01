@@ -24,7 +24,7 @@
 
 # General Info
 
-### Link: [showcase-holiday]()
+### Link: [showcase-holiday](https://showcase-holiday.netlify.app/)
 
 # Description
 

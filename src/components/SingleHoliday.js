@@ -1,7 +1,15 @@
 import React from "react";
 import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 
-const SingleHoliday = ({ titolo, durata, descrizione, prezzo, img }) => {
+const SingleHoliday = ({
+  titolo,
+  durata,
+  descrizione,
+  prezzo,
+  img,
+  nextHoliday,
+  prevHoliday,
+}) => {
   return (
     <div className="holiday-container">
       <img src={img} alt={titolo} className="img" />
@@ -16,11 +24,11 @@ const SingleHoliday = ({ titolo, durata, descrizione, prezzo, img }) => {
         </div>
         <div className="btn-group">
           <button className="btn btn-reset">
-            <GrFormPreviousLink className="icon" />
+            <GrFormPreviousLink className="icon" onClick={prevHoliday} />
           </button>
           <button className="btn btn-reset">
             {" "}
-            <GrFormNextLink className="icon" />
+            <GrFormNextLink className="icon" onClick={nextHoliday} />
           </button>
         </div>
       </div>

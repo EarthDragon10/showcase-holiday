@@ -7,6 +7,18 @@ const Holiday = () => {
   const [data, setData] = useState([]);
   const [selected, setSelected] = useState(0);
 
+  const nextHoliday = () => {
+    setSelected((oldSelected) =>
+      oldSelected + 1 === data.data.length ? 0 : oldSelected + 1
+    );
+  };
+
+  const prevHoliday = () => {
+    setSelected((oldSelected) =>
+      oldSelected - 1 < 0 ? data.data.length - 1 : oldSelected - 1
+    );
+  };
+
   const fetchData = async () => {
     try {
       const response = await axios.get(url);
@@ -24,7 +36,11 @@ const Holiday = () => {
     return (
       <>
         {data.data.length > 0 ? (
-          <SingleHoliday {...data.data[selected]} />
+          <SingleHoliday
+            {...data.data[selected]}
+            nextHoliday={nextHoliday}
+            prevHoliday={prevHoliday}
+          />
         ) : (
           <h3>No Vacanze</h3>
         )}
